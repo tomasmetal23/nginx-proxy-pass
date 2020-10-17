@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nginx1:
+    image: nginx:stable
+    restart: always
+    volumes:
+      - ./default:/etc/nginx/conf.d/default.conf
+#    labels:
+#      - "traefik.enable=true"
+#      - "traefik.http.routers.nginx1.entrypoints=websecure"
+#      - "traefik.http.routers.nginx1.rule=Host(`net.example.com`)"
+#      - "traefik.http.routers.nginx1.tls.certresolver=lets-encr"
+    extra_hosts:
+      - "dockerhost:iphost@adapter"
